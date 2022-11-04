@@ -5,6 +5,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
 import java.sql.Timestamp;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -36,6 +39,24 @@ class BoardMapperTest {
             System.out.println(board.toString());
             System.out.println(board2.toString());
     }
+
+//    1.2 이거 왜 안되지 BoardMapper에 @Insert어노테이션에 함수 호출
+    @Test
+    public void testJpa() {
+        for (int i=1; i<= 15; i++){
+            Board board3= Board.builder()
+                    .title("대단한 제목")
+                    .content("멋진 내용: [%03d]\", i")
+                    .writer("푸름이")
+                    .date_created(new Timestamp(System.currentTimeMillis()))
+                    .build();
+
+            this.boardMapper.createManyBoard(board3);
+
+            System.out.println(board3.toString());
+        }
+    }
+
 
 
 }
