@@ -7,7 +7,7 @@ import java.util.List;
 
 @Mapper
 public interface BoardMapper {
-    public List<Board> getBoard();
+    public List<Board> listBoard();
     public void createBoard(Board board);
 
 }

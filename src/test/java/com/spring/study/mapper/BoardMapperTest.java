@@ -40,29 +40,28 @@ class BoardMapperTest {
             System.out.println(board2.toString());
     }
 
-    @Test
-    public void getBoardTest(){
-
-//        1.1 한줄식 엔터가 되어야 하는데 어떻게 하는거지
-        System.out.println(boardMapper.getBoard());
-    }
-
 //    @Test
-//    public void testJpa() {
-//        for (int i=1; i<= 15; i++){
-//            Board board3= Board.builder()
-//                    .title("대단한 제목")
-//                    .content("멋진 내용: [%03d]\", i")
-//                    .writer("푸름이")
-//                    .date_created(new Timestamp(System.currentTimeMillis()))
-//                    .build();
+//    public void getBoardTest(){
 //
-//            this.boardMapper.createManyBoard(board3);
+////        1.1 한줄식 엔터가 되어야 하는데 어떻게 하는거지
+////        System.out.println(boardMapper.getBoard());
+////    }
 //
-//            System.out.println(board3.toString());
-//        }
-//    }
-
+////    @Test
+////    public void testJpa() {
+////        for (int i=1; i<= 15; i++){
+////            Board board3= Board.builder()
+////                    .title("대단한 제목")
+////                    .content("멋진 내용: [%03d]\", i")
+////                    .writer("푸름이")
+////                    .date_created(new Timestamp(System.currentTimeMillis()))
+////                    .build();
+////
+////            this.boardMapper.createManyBoard(board3);
+////
+////            System.out.println(board3.toString());
+////        }
+////    }
 
 
 }
