@@ -22,7 +22,7 @@ public class BoardDAOImpl implements BoardDAO{
         @Override
         public List<Board> list() throws Exception {
 
-            return sqlSession.selectList("BoardMapper.listboard");
+            return sqlSession.selectList("BoardMapper.listBoard");
         }
 
 }
