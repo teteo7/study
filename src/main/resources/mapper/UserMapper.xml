@@ -22,4 +22,9 @@
             #{gender}
         )
     </insert>
+
+    <select id="findUser" resultType="User">
+        SELECT * FROM user
+        where email = #{email} limit 1;
+    </select>
 </mapper>
