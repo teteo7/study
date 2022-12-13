@@ -9,4 +9,6 @@ import java.util.List;
 public interface UserMapper {
     public List<User> getUsers();
     public void createUser(User user);
+    public User findUser(User query);
+
 }
