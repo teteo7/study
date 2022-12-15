@@ -7,8 +7,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -41,27 +43,22 @@ class BoardMapperTest {
     }
 
     @Test
-    public void getBoardTest(){
+    @Transactional
+    public void createBoard2() {
+        //데이터 입력을 10번 한다.
+        for(int i=1; i<=10; i++){
+            Board board3 = Board.builder()
+                    .title("제목" + i)
+                    .content("내용" + i)
+                    .writer("작성자" + i)
+                    .date_created(new Timestamp(System.currentTimeMillis()))
+                    .build();
+            boardMapper.createBoard(board3);
+            System.out.println(board3.toString());
+        }
+        List<Board> boards = boardMapper.listBoard();
+        assertEquals(10,  boards.size());
 
-//        1.1 한줄식 엔터가 되어야 하는데 어떻게 하는거지
-        System.out.println(boardMapper.listBoard());
     }
-
-//    @Test
-//    public void testJpa() {
-//        for (int i=1; i<= 15; i++){
-//            Board board3= Board.builder()
-//                    .title("대단한 제목")
-//                    .content("멋진 내용: [%03d]\", i")
-//                    .writer("푸름이")
-//                    .date_created(new Timestamp(System.currentTimeMillis()))
-//                    .build();
-//
-//            this.boardMapper.createManyBoard(board3);
-//
-//            System.out.println(board3.toString());
-//        }
-//    }
-
 
 }

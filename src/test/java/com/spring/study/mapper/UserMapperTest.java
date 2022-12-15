@@ -42,16 +42,20 @@ class UserMapperTest {
     }
 
     @Test
-    public void prepareDummyData() {
-        // 이건 테스트 코드가 아니고, 더미 데이터를 만들기 위해 임시로 작성해놓은 코드이다.
-        for (int i = 1; i <= 5; i++) {
+    @Transactional
+    public void createUser2() {
+        for(int i=1; i<=10; i++){
             User user = User.builder()
-                    .email("user" + i + "@email.com")
-                    .name("user" + i)
-                    .password("1234")
-                    .age(i * 10)
-                    .gender("남자").build();
+                    .email("이메일" + i)
+                    .password("1234" + i)
+                    .name("이름" + i)
+                    .age(20 + i)
+                    .gender("기본값default" + i)
+                    .build();
             userMapper.createUser(user);
+            System.out.println(user);
         }
+        List<User> Users = userMapper.listUser();
+        assertEquals(10, Users.size());
     }
 }

@@ -7,7 +7,7 @@ import java.util.List;
 
 @Mapper
 public interface UserMapper {
-    public List<User> getUsers();
+    public List<User> listUser();
     public void createUser(User user);
     public User findUser(User query);
 
