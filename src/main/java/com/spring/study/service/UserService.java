@@ -13,7 +13,7 @@ public class UserService {
     private UserMapper userMapper;
 
     public List<User> list() {
-        return userMapper.getUsers();
+        return userMapper.listUser();
     }
 
 }
